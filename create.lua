@@ -45,9 +45,9 @@ function Creation.createRemote(remoteType, remoteFunction, ...)
   end;
   local Class = Creation.createInstance(remote, {...});
   if remote == "RemoteEvent" then
-    remote.OnServerEvent:Connect(remoteFunction);
+    Class.OnServerEvent:Connect(remoteFunction);
   else
-    remote.OnServerInvoke = remoteFunction;
+    Class.OnServerInvoke = remoteFunction;
   end;
   return Class;
 end;
